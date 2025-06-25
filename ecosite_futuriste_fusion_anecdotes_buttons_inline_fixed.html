@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ÉcoSite Futuriste</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&amp;display=swap" rel="stylesheet"/>
+<style>
+    :root {
+      --bg: #0d0d0d;
+      --green: #39ff14;
+      --cyan: #00ffff;
+      --blue: #1e90ff;
+      --purple: #9f50ff;
+      --font: 'Orbitron', sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: var(--font);
+      background-color: var(--bg);
+      color: var(--green);
+    }
+
+    header {
+      text-align: center;
+      padding: 40px 20px;
+      background: radial-gradient(ellipse at top, #111 0%, #000 100%);
+      box-shadow: 0 0 20px var(--green);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5em;
+      color: var(--cyan);
+    }
+
+    header p {
+      color: var(--green);
+      font-size: 1.1em;
+      margin-top: 10px;
+    }
+
+    section {
+      padding: 40px 10%;
+    }
+
+    .neon-box {
+      border: 2px solid var(--cyan);
+      padding: 20px;
+      border-radius: 12px;
+      margin: 20px 0;
+      box-shadow: 0 0 15px var(--cyan);
+      background-color: rgba(0, 255, 255, 0.05);
+    }
+
+    .quiz-section {
+      margin-top: 60px;
+    }
+
+    .question {
+      font-size: 1.4em;
+      margin-bottom: 20px;
+    }
+
+    .answers {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .answers button {
+      padding: 12px 20px;
+      font-size: 1em;
+      border: 2px solid var(--blue);
+      color: var(--blue);
+      background-color: transparent;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 8px var(--blue);
+    }
+
+    .answers button:hover {
+      background-color: var(--blue);
+      color: black;
+      box-shadow: 0 0 18px var(--cyan), 0 0 30px var(--blue);
+    }
+
+    #result {
+      display: none;
+      margin-top: 30px;
+      font-size: 1.3em;
+      text-align: center;
+      color: var(--purple);
+    }
+
+    footer {
+      background-color: #000;
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9em;
+      color: var(--cyan);
+      margin-top: 50px;
+    }
+
+    @media screen and (max-width: 600px) {
+      section {
+        padding: 30px 20px;
+      }
+
+      header h1 {
+        font-size: 2em;
+      }
+
+      .answers button {
+        font-size: 1em;
+      }
+    }
+
+    #intro-screen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: black;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+    }
+
+    .typing-box {
+      color: #39ff14;
+      font-family: 'Orbitron', monospace;
+      font-size: 1.5em;
+      text-align: center;
+      padding: 20px;
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: 3px solid #39ff14;
+      width: 0;
+      animation: typing 3s steps(40, end) forwards, blink 0.7s infinite;
+    }
+
+    @keyframes typing {
+      to {
+        width: 100%;
+      }
+    }
+
+    @keyframes blink {
+      50% {
+        border-color: transparent;
+      }
+    }
+
+    .video-container {
+      display: flex;
+      justify-content: center;
+      margin: 40px 0;
+    }
+
+    video {
+      width: 100%;
+      max-width: 640px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px var(--cyan);
+    }
+  
+.anecdote-btn {
+  padding: 10px 16px;
+  font-size: 1em;
+  border: 2px solid var(--cyan);
+  color: var(--cyan);
+  background-color: transparent;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 8px var(--cyan);
+  flex: 1 1 auto;
+}
+.anecdote-btn:hover {
+  background-color: var(--cyan);
+  color: black;
+  box-shadow: 0 0 18px var(--cyan), 0 0 30px var(--blue);
+}
+</style>
+</head>
+<body>
+<div id="intro-screen">
+<div class="typing-box">
+<p id="typing-text"></p>
+</div>
+</div>
+<header>
+<h1>ÉcoSite 2125</h1>
+<p>L'écologie du futur commence maintenant 🌍</p>
+</header>
+<section>
+<div class="neon-box">
+<p>🌱 <strong>Le saviez-vous ?</strong> Un seul geste écologique répété chaque jour peut réduire jusqu'à 300 kg de CO₂ par an.</p>
+</div>
+<div class="neon-box">
+<p>🔋 <strong>Astuce futuriste :</strong> Couper les appareils en veille vous économise en moyenne 10 % d'énergie mensuelle.</p>
+</div>
+<div class="neon-box">
+<p>🚲 <strong>Mobilité verte :</strong> Utiliser un vélo au lieu d'une voiture réduit considérablement les émissions de gaz à effet de serre.</p>
+</div>
+<div class="neon-box"><h2>Anecdotes Écologiques</h2><div id="anecdote-buttons" style="display:flex; flex-wrap:wrap; gap:10px; justify-content:center; margin-bottom:20px;">
+<button class="anecdote-btn" onclick="showAnecdote(0)">Anecdote 1</button>
+<button class="anecdote-btn" onclick="showAnecdote(1)">Anecdote 2</button>
+<button class="anecdote-btn" onclick="showAnecdote(2)">Anecdote 3</button>
+<button class="anecdote-btn" onclick="showAnecdote(3)">Anecdote 4</button>
+<button class="anecdote-btn" onclick="showAnecdote(4)">Anecdote 5</button>
+<button class="anecdote-btn" onclick="showAnecdote(5)">Anecdote 6</button>
+<button class="anecdote-btn" onclick="showAnecdote(6)">Anecdote 7</button>
+<button class="anecdote-btn" onclick="showAnecdote(7)">Anecdote 8</button>
+<button class="anecdote-btn" onclick="showAnecdote(8)">Anecdote 9</button>
+<button class="anecdote-btn" onclick="showAnecdote(9)">Anecdote 10</button>
+<button class="anecdote-btn" onclick="showAnecdote(10)">Anecdote 11</button>
+<button class="anecdote-btn" onclick="showAnecdote(11)">Anecdote 12</button>
+<button class="anecdote-btn" onclick="showAnecdote(12)">Anecdote 13</button>
+<button class="anecdote-btn" onclick="showAnecdote(13)">Anecdote 14</button>
+<button class="anecdote-btn" onclick="showAnecdote(14)">Anecdote 15</button>
+</div>
+<div id="anecdote-texts">
+<div class="anecdote-text" id="anecdote-0" style="display:none; margin-top:10px;">🌱 Un arbre adulte peut produire assez d'oxygène pour 4 personnes chaque jour.</div>
+<div class="anecdote-text" id="anecdote-1" style="display:none; margin-top:10px;">💧 Une douche de 5 minutes consomme environ 60 litres d'eau.</div>
+<div class="anecdote-text" id="anecdote-2" style="display:none; margin-top:10px;">♻️ Le recyclage d'une tonne de papier permet d'économiser 17 arbres.</div>
+<div class="anecdote-text" id="anecdote-3" style="display:none; margin-top:10px;">🌍 La température moyenne de la Terre a augmenté de plus de 1°C depuis 1880.</div>
+<div class="anecdote-text" id="anecdote-4" style="display:none; margin-top:10px;">🚯 Chaque année, 8 millions de tonnes de plastique finissent dans les océans.</div>
+<div class="anecdote-text" id="anecdote-5" style="display:none; margin-top:10px;">🔋 Les appareils en veille peuvent représenter jusqu'à 10% de la consommation électrique d’un foyer.</div>
+<div class="anecdote-text" id="anecdote-6" style="display:none; margin-top:10px;">🌡️ Les 10 années les plus chaudes jamais enregistrées l'ont été depuis 2010.</div>
+<div class="anecdote-text" id="anecdote-7" style="display:none; margin-top:10px;">🚲 Remplacer un trajet en voiture par le vélo réduit les émissions de CO₂ de 90%.</div>
+<div class="anecdote-text" id="anecdote-8" style="display:none; margin-top:10px;">🌾 L’agriculture biologique préserve mieux la biodiversité que l’agriculture conventionnelle.</div>
+<div class="anecdote-text" id="anecdote-9" style="display:none; margin-top:10px;">🌬️ L’énergie éolienne est aujourd’hui l’une des sources d’énergie les moins chères.</div>
+<div class="anecdote-text" id="anecdote-10" style="display:none; margin-top:10px;">🛍️ Un sac plastique met jusqu’à 400 ans à se décomposer dans la nature.</div>
+<div class="anecdote-text" id="anecdote-11" style="display:none; margin-top:10px;">🌊 Le niveau des mers a augmenté de plus de 20 cm depuis le début du XXe siècle.</div>
+<div class="anecdote-text" id="anecdote-12" style="display:none; margin-top:10px;">🔥 La déforestation est responsable de 11% des émissions mondiales de gaz à effet de serre.</div>
+<div class="anecdote-text" id="anecdote-13" style="display:none; margin-top:10px;">🧴 Moins de 10% du plastique produit dans le monde est effectivement recyclé.</div>
+<div class="anecdote-text" id="anecdote-14" style="display:none; margin-top:10px;">🌞 En une heure, le Soleil fournit à la Terre plus d’énergie que l’humanité n’en consomme en un an.</div>
+</div>
+</div></section>
+<div class="video-container">
+<video autoplay="" controls="" loop="" muted="">
+<source src="videos/videopollution.mp4" type="video/mp4"/>
+    Votre navigateur ne supporte pas la lecture de vidéos HTML5.
+  </video>
+</div>
+<section class="quiz-section">
+<div class="neon-box">
+<h2>Quiz Interactif 🔍</h2>
+<div id="quiz-container">
+<div class="question" id="question">Chargement...</div>
+<div class="answers" id="answers"></div>
+</div>
+<div id="result"></div>
+</div>
+</section>
+<footer>
+  © 2125 ÉcoSite – Humanité responsable &amp; connectée
+</footer>
+<script>
+let currentAnecdote = null;
+function showAnecdote(index) {
+  if (currentAnecdote !== null) {
+    document.getElementById("anecdote-" + currentAnecdote).style.display = "none";
+  }
+  const selected = document.getElementById("anecdote-" + index);
+  selected.style.display = "block";
+  currentAnecdote = index;
+}
+
+
+  const quiz = [
+    { q: "Quelle est la principale cause du réchauffement climatique ?", a: ["Les gaz à effet de serre", "Les marées", "La rotation de la Terre"], correct: 0 },
+    { q: "Quel matériau est le plus recyclable ?", a: ["Plastique", "Aluminium", "Verre"], correct: 1 },
+    { q: "Quelle énergie est renouvelable ?", a: ["Charbon", "Pétrole", "Solaire"], correct: 2 },
+    { q: "Quel geste réduit le plus les déchets ?", a: ["Recycler", "Réutiliser", "Jeter"], correct: 1 },
+    { q: "Quel animal est en danger à cause de la fonte des glaces ?", a: ["Ours polaire", "Tigre", "Éléphant"], correct: 0 },
+    { q: "Quelle est la meilleure saison pour consommer local ?", a: ["L'été", "L'hiver", "Toutes les saisons"], correct: 2 },
+    { q: "Quel est le gaz le plus impliqué dans l'effet de serre ?", a: ["Oxygène", "CO₂", "Azote"], correct: 1 },
+    { q: "Quelle action économise le plus d'eau ?", a: ["Prendre un bain", "Prendre une douche courte", "Laver sa voiture"], correct: 1 },
+    { q: "Quel est un moyen de transport écologique ?", a: ["Avion", "Voiture", "Vélo"], correct: 2 },
+    { q: "Quel est le symbole du recyclage ?", a: ["Un triangle vert", "Trois flèches en cercle", "Un arbre"], correct: 1 }
+  ];
+
+  let current = 0;
+  let score = 0;
+
+  function showQuestion() {
+    const questionDiv = document.getElementById("question");
+    const answersDiv = document.getElementById("answers");
+    const resultDiv = document.getElementById("result");
+
+    if (current < quiz.length) {
+      const q = quiz[current];
+      questionDiv.textContent = q.q;
+      answersDiv.innerHTML = "";
+
+      q.a.forEach((answer, index) => {
+        const btn = document.createElement("button");
+        btn.textContent = answer;
+        btn.onclick = () => {
+          if (index === q.correct) score++;
+          current++;
+          showQuestion();
+        };
+        answersDiv.appendChild(btn);
+      });
+    } else {
+      document.getElementById("quiz-container").style.display = "none";
+      resultDiv.style.display = "block";
+      resultDiv.innerHTML = `🧠 Score final : <strong>${score} / ${quiz.length}</strong><br>🌎 Merci d’avoir participé !`;
+    }
+  }
+
+  const text = "Initialisation de l'interface éco-futuriste...";
+
+  function typeIntro(callback) {
+    let i = 0;
+    const typingElement = document.getElementById("typing-text");
+    const interval = setInterval(() => {
+      typingElement.textContent = text.slice(0, i + 1);
+      i++;
+      if (i === text.length) {
+        clearInterval(interval);
+        setTimeout(callback, 1200);
+      }
+    }, 50);
+  }
+
+  function hideIntro() {
+    const intro = document.getElementById("intro-screen");
+    intro.style.transition = "opacity 1s ease";
+    intro.style.opacity = 0;
+    setTimeout(() => intro.remove(), 1000);
+  }
+
+  window.onload = () => {
+    typeIntro(() => {
+      hideIntro();
+      showQuestion();
+    });
+  };
+</script>
+</body>
+</html>
